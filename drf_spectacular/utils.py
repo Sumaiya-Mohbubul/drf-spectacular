@@ -59,11 +59,12 @@ class PolymorphicProxySerializer(Serializer):
             serializers: Union[List[_SerializerType], Dict[str, _SerializerType]],
             resource_type_field_name: Optional[str],
             many: bool = False,
+            allow_null: bool = False,
     ):
         self.component_name = component_name
         self.serializers = serializers
         self.resource_type_field_name = resource_type_field_name
-        super().__init__(many=many)
+        super().__init__(many=many, allow_null=allow_null)
 
     @property
     def data(self):
